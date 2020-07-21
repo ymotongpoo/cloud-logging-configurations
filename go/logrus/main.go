@@ -21,11 +21,11 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-var log *logrus.Logger
+var logger *logrus.Logger
 
 func init() {
-	log = logrus.New()
-	log.Formatter = &logrus.JSONFormatter{
+	logger = logrus.New()
+	logger.Formatter = &logrus.JSONFormatter{
 		FieldMap: logrus.FieldMap{
 			logrus.FieldKeyTime:  "timestamp",
 			logrus.FieldKeyLevel: "severity",
@@ -33,11 +33,11 @@ func init() {
 		},
 		TimestampFormat: time.RFC3339Nano,
 	}
-	log.Out = os.Stdout
+	logger.Out = os.Stdout
 }
 
 func main() {
-	log.Info("This is info level log.")
-	log.Warn("This is waning level log.")
-	log.Error("This is error level log.")
+	logger.Info("This is info level log.")
+	logger.Warn("This is waning level log.")
+	logger.Error("This is error level log.")
 }
