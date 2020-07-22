@@ -40,8 +40,11 @@ def getJSONLogger(name):
     logger.propagate = False
     return logger
 
-if __name__ == '__main__':
+def main():
     logger = getJSONLogger("python-json-log-sample")
     logger.info("This is info level log.")
     logger.warning("This is warning level log.")
     logger.error("This is error level log.")
+
+if __name__ == '__main__':
+    main()
