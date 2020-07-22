@@ -1,0 +1,25 @@
+{
+  "name": "bunyan-json-log-sample",
+  "version": "1.0.0",
+  "description": "A small sample to use bunyan for JSON log for Google Cloud Logging",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ymotongpoo/cloud-logging-configurations.git"
+  },
+  "keywords": [
+    "google-cloud-logging"
+  ],
+  "author": "Yoshi Yamaguchi",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ymotongpoo/cloud-logging-configurations/issues"
+  },
+  "homepage": "https://github.com/ymotongpoo/cloud-logging-configurations#readme",
+  "dependencies": {
+    "bunyan": "^1.8.14"
+  }
+}
