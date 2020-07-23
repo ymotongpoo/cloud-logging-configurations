@@ -3,3 +3,12 @@ node_modules
 
 # For Python
 .venv
+
+# For Java
+.gradle
+*.jar
+*.class
+*.ctxt
+hs_err_pid*
+gradle-app.setting
+!gradle-wrapper.jar
