@@ -15,13 +15,23 @@
 package sample.jul;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.logging.Logger;
 import java.util.logging.LogManager;
 
 public class GCLLogger {
-    public static void main(final String[] args) throws IOException {
-        LogManager.getLogManager().readConfiguration(
-            GCLLogger.class.getResourceAsStream("logging.properties"));
+    public static void main(final String[] args) {
+        try {
+            InputStream stream = GCLLogger.class.getResourceAsStream("logging.properties");
+            if (stream == null) {
+                System.out.println("stream is null");
+                return;
+            }
+            LogManager.getLogManager().readConfiguration(stream);
+        } catch (IOException e) {
+            System.out.println("hogehoge");
+            e.printStackTrace();
+        }
         Logger logger = Logger.getLogger("jul-sample");
 
         logger.info("This is info level log.");

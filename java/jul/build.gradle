@@ -7,4 +7,7 @@
 
 plugins {
     id 'java'
+    id 'application'
 }
+
+mainClassName = 'sample.jul.GCLLogger'
