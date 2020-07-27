@@ -23,13 +23,8 @@ public class GCLLogger {
     public static void main(final String[] args) {
         try {
             InputStream stream = GCLLogger.class.getClassLoader().getResourceAsStream("logging.properties");
-            if (stream == null) {
-                System.out.println("stream is null");
-                return;
-            }
             LogManager.getLogManager().readConfiguration(stream);
         } catch (IOException e) {
-            System.out.println("hogehoge");
             e.printStackTrace();
         }
         Logger logger = Logger.getLogger("jul-sample");

@@ -7,14 +7,14 @@ js/*/node_modules
 python/*/.venv
 
 # For Java
-java/*/.gradle
+java/**/.gradle
 java/**/*.jar
 java/**/*.class
 java/**/*.ctxt
 java/**/hs_err_pid*
-java/*/gradle-app.setting
-java/*/build
-java/*/bin/
+java/**/gradle-app.setting
+java/**/build
+java/**/bin/
 !gradle-wrapper.jar
 
 # For PHP
