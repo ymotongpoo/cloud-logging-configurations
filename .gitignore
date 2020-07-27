@@ -1,16 +1,20 @@
+.vscode
+
 # For Node.js
-node_modules
+js/*/node_modules
 
 # For Python
-.venv
+python/*/.venv
 
 # For Java
-.gradle
-*.jar
-*.class
-*.ctxt
-hs_err_pid*
-gradle-app.setting
+java/*/.gradle
+java/**/*.jar
+java/**/*.class
+java/**/*.ctxt
+java/**/hs_err_pid*
+java/*/gradle-app.setting
+java/*/build
+java/*/bin/
 !gradle-wrapper.jar
 
 # For PHP
