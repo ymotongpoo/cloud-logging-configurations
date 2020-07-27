@@ -22,7 +22,7 @@ import java.util.logging.LogManager;
 public class GCLLogger {
     public static void main(final String[] args) {
         try {
-            InputStream stream = GCLLogger.class.getResourceAsStream("logging.properties");
+            InputStream stream = GCLLogger.class.getClassLoader().getResourceAsStream("logging.properties");
             if (stream == null) {
                 System.out.println("stream is null");
                 return;
