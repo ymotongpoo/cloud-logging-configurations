@@ -21,17 +21,18 @@ import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.time.ZoneOffset;
 
-import org.json.JSONObject;
-
 public class JsonFormatter extends Formatter {
     @Override
     public String format(LogRecord record) {
-        JSONObject data = new JSONObject();
-        Instant i = Instant.ofEpochMilli(record.getMillis());
-        ZonedDateTime timestamp = ZonedDateTime.ofInstant(i, ZoneOffset.UTC);
-        data.put("message", record.getMessage());
-        data.put("timestamp", timestamp);
+        StringBuilder json = new StringBuilder("{");
+        appendSeverity(json, record);
+        appendMessage(json, record);
+        appendTimestamp(json, record);
+        json.append("}\n");
+        return json.toString();
+    }
 
+    private static void appendSeverity(StringBuilder json, LogRecord record) {
         // Note: JUL doesn't proivde the severity level "ERROR", and some work around
         // is required to make the formatter Google Cloud Logging.
         // ref. https://docs.oracle.com/en/java/javase/14/docs/api/java.logging/java/util/logging/Level.html
@@ -40,7 +41,20 @@ public class JsonFormatter extends Formatter {
         if (l == Level.SEVERE) {
             severity = "ERROR";
         }
-        data.put("severity", severity);
-        return data.toString()+"\n";
+        json.append("\"severity\": \"").append(severity).append("\", ");
     }
+
+    private static void appendMessage(StringBuilder json, LogRecord record) {
+        // Note: record.getMessage() needs to be escaped when we do this in production.
+        json.append("\"message\": \"").append(record.getMessage());
+        json.append("\", ");
+    }
+
+    private static void appendTimestamp(StringBuilder json, LogRecord record) {
+        Instant i = Instant.ofEpochMilli(record.getMillis());
+        ZonedDateTime timestamp = ZonedDateTime.ofInstant(i, ZoneOffset.UTC);
+        json.append("\"timestamp\": \"").append(timestamp.toString());
+        json.append("\"");
+    }
+
 }
