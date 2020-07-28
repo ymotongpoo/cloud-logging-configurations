@@ -22,12 +22,12 @@ import java.util.logging.LogManager;
 public class GCLLogger {
     public static void main(final String[] args) {
         try {
-            InputStream stream = GCLLogger.class.getClassLoader().getResourceAsStream("logging.properties");
+            var stream = GCLLogger.class.getClassLoader().getResourceAsStream("logging.properties");
             LogManager.getLogManager().readConfiguration(stream);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Logger logger = Logger.getLogger("jul-sample");
+        var logger = Logger.getLogger("jul-sample");
 
         logger.info("This is info level log.");
         logger.warning("This is warning level log.");

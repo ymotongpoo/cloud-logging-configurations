@@ -24,7 +24,7 @@ import java.time.ZoneOffset;
 public class JsonFormatter extends Formatter {
     @Override
     public String format(LogRecord record) {
-        StringBuilder json = new StringBuilder("{");
+        var json = new StringBuilder("{");
         appendSeverity(json, record);
         appendMessage(json, record);
         appendTimestamp(json, record);
@@ -36,8 +36,8 @@ public class JsonFormatter extends Formatter {
         // Note: JUL doesn't proivde the severity level "ERROR", and some work around
         // is required to make the formatter Google Cloud Logging.
         // ref. https://docs.oracle.com/en/java/javase/14/docs/api/java.logging/java/util/logging/Level.html
-        Level l = record.getLevel();
-        String severity = l.getName();
+        var l = record.getLevel();
+        var severity = l.getName();
         if (l == Level.SEVERE) {
             severity = "ERROR";
         }
@@ -51,8 +51,8 @@ public class JsonFormatter extends Formatter {
     }
 
     private static void appendTimestamp(StringBuilder json, LogRecord record) {
-        Instant i = Instant.ofEpochMilli(record.getMillis());
-        ZonedDateTime timestamp = ZonedDateTime.ofInstant(i, ZoneOffset.UTC);
+        var i = Instant.ofEpochMilli(record.getMillis());
+        var timestamp = ZonedDateTime.ofInstant(i, ZoneOffset.UTC);
         json.append("\"timestamp\": \"").append(timestamp.toString());
         json.append("\"");
     }
