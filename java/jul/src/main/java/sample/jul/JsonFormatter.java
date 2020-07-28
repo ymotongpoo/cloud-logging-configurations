@@ -15,6 +15,7 @@
 package sample.jul;
 
 import java.util.logging.Formatter;
+import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.time.Instant;
 import java.time.ZonedDateTime;
@@ -30,7 +31,16 @@ public class JsonFormatter extends Formatter {
         ZonedDateTime timestamp = ZonedDateTime.ofInstant(i, ZoneOffset.UTC);
         data.put("message", record.getMessage());
         data.put("timestamp", timestamp);
-        data.put("severity", record.getLevel());
+
+        // Note: JUL doesn't proivde the severity level "ERROR", and some work around
+        // is required to make the formatter Google Cloud Logging.
+        // ref. https://docs.oracle.com/en/java/javase/14/docs/api/java.logging/java/util/logging/Level.html
+        Level l = record.getLevel();
+        String severity = l.getName();
+        if (l == Level.SEVERE) {
+            severity = "ERROR";
+        }
+        data.put("severity", severity);
         return data.toString()+"\n";
     }
 }
