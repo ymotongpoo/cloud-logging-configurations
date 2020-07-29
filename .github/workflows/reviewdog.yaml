@@ -12,6 +12,8 @@ jobs:
         with:
           node-version: '12'
           check-lastest: true
+      - name: Install eslint
+        run: npm install eslint -D
       - name: Run eslint with reviewdog
         uses: reviewdog/action-eslint@v1.0.0
         with:
