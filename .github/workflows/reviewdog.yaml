@@ -1,0 +1,16 @@
+name: reviewdog
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  reviewdog:
+    name: runner / eslint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run eslint with reviewdog
+        uses: reviewdog/action-eslint@v1.0.0
+        with:
+          eslint_flags: 'js/'
