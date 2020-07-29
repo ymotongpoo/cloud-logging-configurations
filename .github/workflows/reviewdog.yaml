@@ -6,7 +6,15 @@ jobs:
     name: runner / eslint
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+          check-lastest: true
       - name: Run eslint with reviewdog
         uses: reviewdog/action-eslint@v1.0.0
         with:
-          eslint_flags: 'js/'
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          eslint_flags: 'js/**/*.js'
