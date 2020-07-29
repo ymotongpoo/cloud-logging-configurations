@@ -1,12 +1,8 @@
 name: reviewdog
-on:
-  push:
-    branches:
-      - master
-  pull_request:
+on: [push, pull_request]
 
 jobs:
-  reviewdog:
+  reviewdog_eslint:
     name: runner / eslint
     runs-on: ubuntu-latest
     steps:
