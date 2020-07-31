@@ -58,7 +58,10 @@ func init() {
 }
 
 func main() {
-	logger.Info().Msg("This is info level log.")
-	logger.Warn().Msg("This is warning level log.")
-	logger.Error().Msg("This is error level log.")
+	t := time.NewTicker(time.Second)
+	for range t.C {
+		logger.Info().Msg("This is info level log.")
+		logger.Warn().Msg("This is warning level log.")
+		logger.Error().Msg("This is error level log.")
+	}
 }
