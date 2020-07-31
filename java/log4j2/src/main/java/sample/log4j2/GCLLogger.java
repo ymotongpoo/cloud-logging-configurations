@@ -14,11 +14,11 @@
 
 package sample.log4j2;
 
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class GCLLogger {
-    private static final Logger logger = LogManager.getLogger(GCLLogger.class.getClassLoader());
+    private static final Logger logger = LoggerFactory.getLogger(GCLLogger.class);
     public static void main(String[] args) {
         logger.info("This is info level log.");
         logger.warn("This is warning level log.");
