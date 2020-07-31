@@ -16,6 +16,7 @@ package main
 
 import (
 	"log"
+	"time"
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -49,7 +50,10 @@ func init() {
 }
 
 func main() {
-	logger.Info("This is info level log.")
-	logger.Warn("This is warning level log.")
-	logger.Error("This is error level log.")
+	t := time.NewTicker(time.Second)
+	for range t.C {
+		logger.Info("This is info level log.")
+		logger.Warn("This is warning level log.")
+		logger.Error("This is error level log.")
+	}
 }
