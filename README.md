@@ -36,3 +36,5 @@ Google Cloud Logging aware in variety of languages.
   * [bunyan](https://www.npmjs.com/package/bunyan)
 * Java
   * [JUL](https://docs.oracle.com/en/java/javase/14/docs/api/java.logging/java/util/logging/package-summary.html)
+* PHP
+  * [monolog](https://packagist.org/packages/monolog/monolog)
