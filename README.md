@@ -27,6 +27,7 @@ Google Cloud Logging aware in variety of languages.
   * [go.uber.org/zap](https://pkg.go.dev/go.uber.org/zap)
   * [github.com/rs/zerolog](https://pkg.go.dev/github.com/rs/zerolog)
 * Python
+  * [structlog](https://pypi.org/project/structlog/)
   * [json-logging](https://pypi.org/project/json-logging/)
   * [python-json-logger](https://pypi.org/project/python-json-logger/)
 * Node.js
