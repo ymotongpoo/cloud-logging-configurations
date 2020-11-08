@@ -1,1 +1,1 @@
-json-logging==1.2.8
+json-logging==1.2.11
