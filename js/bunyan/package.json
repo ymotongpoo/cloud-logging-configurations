@@ -23,9 +23,9 @@
     "bunyan": "^1.8.14"
   },
   "devDependencies": {
-    "eslint": "7.10.0",
-    "eslint-config-prettier": "6.12.0",
-    "eslint-plugin-prettier": "3.1.4",
+    "eslint": "7.17.0",
+    "eslint-config-prettier": "7.1.0",
+    "eslint-plugin-prettier": "3.3.1",
     "prettier": "2.2.1"
   }
 }
