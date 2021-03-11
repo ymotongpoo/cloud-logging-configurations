@@ -1,2 +1,2 @@
 six==1.15.0
-structlog==20.2.0
+structlog==21.1.0
