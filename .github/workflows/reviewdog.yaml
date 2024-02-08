@@ -15,7 +15,7 @@ jobs:
       - name: Install eslint dependencies
         run: npm install eslint prettier eslint-plugin-prettier eslint-config-prettier -D
       - name: Run eslint with reviewdog
-        uses: reviewdog/action-eslint@v1.13.0
+        uses: reviewdog/action-eslint@v1.23.0
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-check
